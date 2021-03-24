@@ -8,12 +8,13 @@ var button = d3.select("#filter-btn")
 //Select the form
 var form = d3.select("#form")
 
+// // Creating Event Handlers
 button.on("click", runEnter)
 form.on("submit", runEnter)
 
 
-//Creating Event Handlers
-//  Get a reference to table body
+
+// //  Get a reference to table body
 // var tbody=d3.select("#ufo-table");
 // // YOUR CODE HERE!
 // data.forEach((Aliens) => {
@@ -27,7 +28,7 @@ form.on("submit", runEnter)
 // });
 
 
-
+var tbody=d3.select("#ufo-table")
 function runEnter(){
     d3.event.preventDefault();
     var inputElement= d3.select("#datetime");
@@ -37,7 +38,7 @@ function runEnter(){
   var filteredData = tableData.filter(alien => alien.datetime === inputValue);
 
   console.log(filteredData);
-  var tbody=d3.select("ufo-table")
+  
   filteredData.forEach((Aliens) => {
       console.log(Aliens);
       var row = tbody.append("tr");
