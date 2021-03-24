@@ -11,5 +11,6 @@ data.forEach(function(Aliens) {
   Object.entries(Aliens).forEach(function([key, value]) {
   console.log(key, value);
   var cell = row.append("td");
+  cell.text(value)
       });
 });
