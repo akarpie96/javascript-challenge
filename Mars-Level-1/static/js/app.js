@@ -27,14 +27,23 @@ form.on("submit", runEnter)
 // });
 
 
+
 function runEnter(){
     d3.event.preventDefault();
     var inputElement= d3.select("#datetime");
     var inputValue= inputElement.property("value")
     console.log(inputValue);
-    console.log(tableData);
 
   var filteredData = tableData.filter(alien => alien.datetime === inputValue);
 
   console.log(filteredData);
+  var tbody=d3.select("ufo-table")
+  filteredData.forEach((Aliens) => {
+      console.log(Aliens);
+      var row = tbody.append("tr");
+      Object.entries(Aliens).forEach(function([key, value]) {
+      var cell = row.append("td");
+      cell.text(value)
+          });
+    });
 }
