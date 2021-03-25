@@ -8,9 +8,14 @@ var button = d3.select("#filter-btn")
 //Select the form
 var form = d3.select("#form")
 
+var clearButton= d3.select("#clear-btn")
+
 // // Creating Event Handlers
 button.on("click", runEnter)
 form.on("submit", runEnter)
+clearButton.on("click", clearing)
+
+
 
 
 
@@ -48,3 +53,8 @@ function runEnter(){
           });
     });
 }
+
+
+function clearing(){
+var td_selected = d3.selectAll("td")
+td_selected.remove()}
