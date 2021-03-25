@@ -33,16 +33,18 @@ clearButton.on("click", clearing)
 // });
 
 
-var tbody=d3.select("#ufo-table")
+var tbody=d3.select(".table ")
 function runEnter(){
     d3.event.preventDefault();
     var inputElement= d3.select("#datetime");
     var inputValue= inputElement.property("value")
     console.log(inputValue);
-
   var filteredData = tableData.filter(alien => alien.datetime === inputValue);
 
   console.log(filteredData);
+
+  
+
   
   filteredData.forEach((Aliens) => {
       console.log(Aliens);
@@ -51,10 +53,37 @@ function runEnter(){
       var cell = row.append("td");
       cell.text(value)
           });
-    });
-}
+    });}
 
 
 function clearing(){
 var td_selected = d3.selectAll("td")
 td_selected.remove()}
+
+
+// var tbody=d3.select("#ufo-table")
+// function runEnter(){
+//     d3.event.preventDefault();
+//     var inputElement= d3.select("#datetime");
+//     var inputValue= inputElement.property("value")
+//     console.log(inputValue);
+//     if(inputValue in tableData){
+//   var filteredData = tableData.filter(alien => alien.datetime === inputValue);
+
+//   console.log(filteredData);
+
+  
+
+  
+//   filteredData.forEach((Aliens) => {
+//       console.log(Aliens);
+//       var row = tbody.append("tr");
+//       Object.entries(Aliens).forEach(function([key, value]) {
+//       var cell = row.append("td");
+//       cell.text(value)
+//           });
+//     });}
+// else{
+//     console.log("no data found")
+// }
+// }
