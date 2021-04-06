@@ -13,28 +13,25 @@ var clearButton= d3.select("#clear-btn")
 // // Creating Event Handlers
 button.on("click", runEnter)
 form.on("submit", runEnter)
-clearButton.on("click", clearing)
 
 
-
-
-
-// //  Get a reference to table body
-// var tbody=d3.select("#ufo-table");
-// // YOUR CODE HERE!
-// data.forEach((Aliens) => {
-//   console.log(Aliens);
-//   var row = tbody.append("tr");
-//   Object.entries(Aliens).forEach(function([key, value]) {
-//   console.log(key, value);
-//   var cell = row.append("td");
-//   cell.text(value)
-//       });
-// });
-
-
+// Creating initial table that renders when page loads
 var tbody=d3.select(".table ")
+var td_selected = d3.selectAll("td")
+var inputElement= d3.select("#datetime");
+tableData.forEach((Aliens) => {
+    console.log(Aliens);
+    var row = tbody.append("tr");
+    Object.entries(Aliens).forEach(function([key, value]) {
+    var cell = row.append("td");
+    cell.text(value)
+        });
+  })
+//Function for filtering data
 function runEnter(){
+    var td_selected = d3.selectAll("td")
+    //Clearing functionality so that old data clears every time table is filtered. 
+    td_selected.remove()
     d3.event.preventDefault();
     var inputElement= d3.select("#datetime");
     var inputValue= inputElement.property("value")
@@ -45,7 +42,7 @@ function runEnter(){
 
   
 
-  
+  // Iterating through object and appending to table
   filteredData.forEach((Aliens) => {
       console.log(Aliens);
       var row = tbody.append("tr");
@@ -56,34 +53,6 @@ function runEnter(){
     });}
 
 
-function clearing(){
-var td_selected = d3.selectAll("td")
-td_selected.remove()}
 
 
-// var tbody=d3.select("#ufo-table")
-// function runEnter(){
-//     d3.event.preventDefault();
-//     var inputElement= d3.select("#datetime");
-//     var inputValue= inputElement.property("value")
-//     console.log(inputValue);
-//     if(inputValue in tableData){
-//   var filteredData = tableData.filter(alien => alien.datetime === inputValue);
 
-//   console.log(filteredData);
-
-  
-
-  
-//   filteredData.forEach((Aliens) => {
-//       console.log(Aliens);
-//       var row = tbody.append("tr");
-//       Object.entries(Aliens).forEach(function([key, value]) {
-//       var cell = row.append("td");
-//       cell.text(value)
-//           });
-//     });}
-// else{
-//     console.log("no data found")
-// }
-// }
