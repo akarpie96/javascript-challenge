@@ -18,7 +18,7 @@ form.on("submit", runEnter)
 // Creating initial table that renders when page loads
 var tbody=d3.select(".table ")
 var td_selected = d3.selectAll("td")
-var inputElement= d3.select("#datetime");
+// var inputElement= d3.select("#datetime");
 tableData.forEach((Aliens) => {
     console.log(Aliens);
     var row = tbody.append("tr");
